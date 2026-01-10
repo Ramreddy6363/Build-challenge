@@ -1,11 +1,17 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GTG - Best Perfume</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/script.js" defer></script>
   </head>
   <body>
     <!-- Header Navbar -->
@@ -19,7 +25,7 @@
           <li><a href="#">Home</a></li>
           <li class="shop-item">
             <a href="#">Shop</a>
-            <img src="./assests/arrow_down.png" alt="arrow_down" />
+            <img src="./assets/arrow_down.png" alt="arrow_down" />
           </li>
           <li><a href="#">Fragrances</a></li>
           <li><a href="#">About Us</a></li>
@@ -29,7 +35,7 @@
 
         <div class="nav-actions">
           <div class="search">
-            <img src="./assests/search.png" alt="search_image" />
+            <img src="./assets/search.png" alt="search_image" />
           </div>
           <button class="shop-now-btn desktop-only">Shop Now</button>
 
@@ -44,12 +50,12 @@
       <!-- Hero Section -->
       <section class="hero">
         <div class="hero-image-container">
-          <img src="./assests/Hero_img.png" alt="hero_image" class="hero-bg" />
+          <img src="./assets/Hero_img.png" alt="hero_image" class="hero-bg" />
         </div>
 
         <div class="hero-content">
           <div class="medal-badge">
-            <img src="./assests/Medal.png" alt="medal_image" />
+            <img src="./assets/Medal.png" alt="medal_image" />
             <p>Awarded the best perfume in the world</p>
           </div>
           <div class="title-container">
@@ -57,15 +63,15 @@
           </div>
           <div class="hero-stats">
             <div class="stat-item">
-              <h2>10x</h2>
+              <h2 class="counter" data-target="10">0x</h2>
               <p>power</p>
             </div>
             <div class="stat-item">
-              <h2>9</h2>
+              <h2 class="counter" data-target="9">0</h2>
               <p>ingredients</p>
             </div>
             <div class="stat-item">
-              <h2>20k+</h2>
+              <h2 class="counter" data-target="20000">0</h2>
               <p>happy customers</p>
             </div>
           </div>
@@ -74,76 +80,60 @@
       </section>
 
       <!-- Product Details Section -->
-      <section class="product-details-section">
+      <section class="product-details-section reveal">
         <div class="product-container">
           <!-- Left: Product Gallery -->
           <div class="product-gallery">
             <div class="main-image-container">
-              <button class="gallery-arrow prev">
-                <img src="./assests/reverse.svg" alt="prev" />
-              </button>
               <img
-                src="./assests/display-img.png"
+                src="./assets/display-img.png"
                 alt="Main Product"
                 class="main-display-img"
+                id="main-img"
+                loading="lazy"
               />
-              <button class="gallery-arrow next">
-                <img src="./assests/Button.svg" alt="next" />
-              </button>
-              <div class="gallery-dots">
-                <span class="g-dot active"></span>
-                <span class="g-dot"></span>
-                <span class="g-dot"></span>
-                <span class="g-dot"></span>
+              <div class="gallery-controls">
+                <button class="gallery-arrow prev" id="prev-btn">
+                  <img src="./assets/reverse.svg" alt="prev" />
+                </button>
+                <div class="gallery-dots" id="dots-container">
+                  <span class="g-dot active" data-index="0"></span>
+                  <span class="g-dot" data-index="1"></span>
+                  <span class="g-dot" data-index="2"></span>
+                  <span class="g-dot" data-index="3"></span>
+                </div>
+                <button class="gallery-arrow next" id="next-btn">
+                  <img src="./assets/Button.svg" alt="next" />
+                </button>
               </div>
             </div>
-            <div class="thumbnails-grid-container">
-              <div class="thumb-item">
+            <div class="thumbnails-grid-container" id="thumbnails-container">
+              <div class="thumb-item active" data-index="0">
                 <img
-                  src="./assests/product-page-image/pexels-pixabay-264870 1.png"
+                  src="./assets/display-img.png"
                   alt="thumb"
+                  loading="lazy"
                 />
               </div>
-              <div class="thumb-item active">
+              <div class="thumb-item" data-index="1">
                 <img
-                  src="./assests/product-page-image/pexels-pixabay-264950 1.png"
+                  src="./assets/product-page-image/pexels-pixabay-264870 1.png"
                   alt="thumb"
+                  loading="lazy"
                 />
               </div>
-              <div class="thumb-item">
+              <div class="thumb-item" data-index="2">
                 <img
-                  src="./assests/product-page-image/pexels-rethaferguson-3059609 2.png"
+                  src="./assets/product-page-image/pexels-pixabay-264950 1.png"
                   alt="thumb"
+                  loading="lazy"
                 />
               </div>
-              <div class="thumb-item">
+              <div class="thumb-item" data-index="3">
                 <img
-                  src="./assests/product-page-image/Group 1000003951.png"
+                  src="./assets/product-page-image/pexels-rethaferguson-3059609 2.png"
                   alt="thumb"
-                />
-              </div>
-              <div class="thumb-item">
-                <img
-                  src="./assests/product-page-image/pexels-pixabay-264870 1-1.png"
-                  alt="thumb"
-                />
-              </div>
-              <div class="thumb-item">
-                <img
-                  src="./assests/product-page-image/pexels-pixabay-264950 1-1.png"
-                  alt="thumb"
-                />
-              </div>
-              <div class="thumb-item">
-                <img
-                  src="./assests/product-page-image/pexels-rethaferguson-3059609 2-1.png"
-                  alt="thumb"
-                />
-              </div>
-              <div class="thumb-item">
-                <img
-                  src="./assests/product-page-image/Group 1000003951-1.png"
-                  alt="thumb"
+                  loading="lazy"
                 />
               </div>
             </div>
@@ -151,29 +141,34 @@
 
           <!-- Right: Product Info -->
           <div class="product-info-panel">
-            <h1 class="product-main-title">GTG Perfumes</h1>
+            <h1 class="product-main-title">GTG - Best Perfume</h1>
             <div class="product-rating">
               <div class="rating-stars">
-                <img src="./assests/star.png" alt="star" />
-                <img src="./assests/star.png" alt="star" />
-                <img src="./assests/star.png" alt="star" />
-                <img src="./assests/star.png" alt="star" />
-                <img src="./assests/star.png" alt="star" />
+                <!-- Using img for stars, simple approach -->
+                <img src="./assets/star.png" alt="star" />
+                <img src="./assets/star.png" alt="star" />
+                <img src="./assets/star.png" alt="star" />
+                <img src="./assets/star.png" alt="star" />
+                <img src="./assets/star.png" alt="star" />
               </div>
               <span class="rating-text">4.7 (999+ reviews)</span>
             </div>
             <p class="product-summary">
-              Experience the timeless allure backed by modern artistry, captured
-              in every bottle of our fragrance. Crafted for those who seek to
-              elevate their essence with purpose and sophistication.
+              Experience the essence of nature with our premium fragrance
+              collection. Long-lasting, alcohol-free, and designed for elegance.
             </p>
 
-            <!-- Subscription Cards Container -->
+            <!-- Subscription Plans -->
             <div class="subscription-plans">
-              <!-- Plan 1 (Most Popular) -->
-              <div class="plan-card most-popular-plan active" id="plan-single">
-                <div class="plan-badge">Most Popular</div>
-                <div class="plan-header" onclick="selectPlan('single')">
+              <h3 class="sub-label">Select Your Plan</h3>
+
+              <!-- Option 1 -->
+              <div
+                class="plan-card"
+                id="plan-single"
+                onclick="selectPlan('single')"
+              >
+                <div class="plan-header">
                   <div class="plan-selector">
                     <div class="custom-radio-outer active">
                       <div class="custom-radio-inner"></div>
@@ -181,127 +176,94 @@
                     <label>Single Subscription</label>
                   </div>
                   <div class="plan-pricing">
-                    <span class="price-now">$99.99</span>
-                    <span class="price-was">$146</span>
+                    <span class="price-now">$33.00</span>
+                    <span class="price-was">$45.00</span>
                   </div>
                 </div>
 
                 <div class="plan-details" id="details-single">
+                  <!-- Fragrance 1 -->
                   <div class="fragrance-selection">
-                    <p class="sub-label">Choose a Fragrance</p>
+                    <p class="sub-label">Choose Fragrance</p>
                     <div class="fragrance-grid">
-                      <div class="frag-option selected">
-                        <span class="best-seller-tag">BEST-SELLER</span>
+                      <div
+                        class="frag-option selected"
+                        onclick="selectFragrance(this, 'Fruity High')"
+                      >
+                        <div class="best-seller-tag">Best Seller</div>
                         <div class="frag-info">
-                          <span class="frag-dot active"></span>
-                          <span class="frag-name">Original</span>
+                          <div class="frag-dot active"></div>
+                          <span class="frag-name">Fruity High</span>
                         </div>
                         <img
-                          src="./assests/main-product.png"
-                          alt="Original"
+                          src="./assets/product-page-image/pexels-pixabay-264870 1.png"
                           class="frag-img"
+                          alt="Fruity"
                         />
                       </div>
-                      <div class="frag-option">
+                      <div
+                        class="frag-option"
+                        onclick="selectFragrance(this, 'Floral Bliss')"
+                      >
                         <div class="frag-info">
-                          <span class="frag-dot"></span>
-                          <span class="frag-name">Lily</span>
+                          <div class="frag-dot"></div>
+                          <span class="frag-name">Floral Bliss</span>
                         </div>
                         <img
-                          src="./assests/product one.png"
-                          alt="Lily"
+                          src="./assets/product-page-image/pexels-pixabay-264950 1.png"
                           class="frag-img"
+                          alt="Floral"
                         />
                       </div>
-                      <div class="frag-option">
+                      <div
+                        class="frag-option"
+                        onclick="selectFragrance(this, 'Woody Note')"
+                      >
                         <div class="frag-info">
-                          <span class="frag-dot"></span>
-                          <span class="frag-name">Rose</span>
+                          <div class="frag-dot"></div>
+                          <span class="frag-name">Woody Note</span>
                         </div>
                         <img
-                          src="./assests/product two.png"
-                          alt="Rose"
+                          src="./assets/product-page-image/pexels-rethaferguson-3059609 2.png"
                           class="frag-img"
+                          alt="Woody"
                         />
                       </div>
                     </div>
                   </div>
 
+                  <!-- Included Items -->
                   <div class="included-section">
                     <p class="sub-label">What's Included:</p>
                     <div class="included-grid">
                       <div class="included-item-box">
-                        <p class="inc-label">Every 30 Days</p>
                         <img
-                          src="./assests/main-product.png"
-                          alt="Monthly Bottle"
-                          class="inc-img-main"
+                          src="./assets/3d-rotate 1.svg"
+                          class="inc-icon"
+                          alt="case"
                         />
+                        <span>1 Case</span>
                       </div>
                       <div class="included-item-box">
-                        <p class="inc-label">
-                          One Time <strong>(Free)</strong>
-                        </p>
-                        <div class="sample-images">
-                          <img
-                            src="./assests/main-product.png"
-                            alt="Sample 1"
-                          />
-                          <img src="./assests/product one.png" alt="Sample 2" />
-                          <img src="./assests/product two.png" alt="Sample 3" />
-                        </div>
+                        <img
+                          src="./assets/scent.svg"
+                          class="inc-icon"
+                          alt="scent"
+                        />
+                        <span>1 Scent</span>
                       </div>
                     </div>
                   </div>
-
-                  <ul class="plan-features">
-                    <li>
-                      <img
-                        src="./assests/checkmark.png"
-                        alt="check"
-                        class="feat-icon"
-                      />
-                      1 Bottle Shipped Monthly
-                    </li>
-                    <li>
-                      <img
-                        src="./assests/checkmark.png"
-                        alt="check"
-                        class="feat-icon"
-                      />
-                      <strong>Free</strong> Sampler For Original, Lily And Rose
-                      Fragrances
-                    </li>
-                    <li>
-                      <img
-                        src="./assests/checkmark.png"
-                        alt="check"
-                        class="feat-icon"
-                      />
-                      <strong>50% OFF Shipping</strong>
-                    </li>
-                    <li>
-                      <img
-                        src="./assests/checkmark.png"
-                        alt="check"
-                        class="feat-icon"
-                      />
-                      Pause Or Cancel Anytime After 3 Months Minimum
-                    </li>
-                    <li>
-                      <img
-                        src="./assests/checkmark.png"
-                        alt="check"
-                        class="feat-icon"
-                      />
-                      28 Day Money Back Guarantee*
-                    </li>
-                  </ul>
                 </div>
               </div>
 
-              <!-- Plan 2 -->
-              <div class="plan-card" id="plan-double">
+              <!-- Option 2 -->
+              <div
+                class="plan-card most-popular-plan"
+                id="plan-double"
+                onclick="selectPlan('double')"
+              >
+                <div class="plan-badge">Most Popular</div>
                 <div class="plan-header" onclick="selectPlan('double')">
                   <div class="plan-selector">
                     <div class="custom-radio-outer">
@@ -334,7 +296,7 @@
                           <span class="frag-name">Original</span>
                         </div>
                         <img
-                          src="./assests/main-product.png"
+                          src="./assets/main-product.png"
                           alt="Original"
                           class="frag-img"
                         />
@@ -345,7 +307,7 @@
                           <span class="frag-name">Lily</span>
                         </div>
                         <img
-                          src="./assests/product one.png"
+                          src="./assets/product one.png"
                           alt="Lily"
                           class="frag-img"
                         />
@@ -356,7 +318,7 @@
                           <span class="frag-name">Rose</span>
                         </div>
                         <img
-                          src="./assests/product two.png"
+                          src="./assets/product two.png"
                           alt="Rose"
                           class="frag-img"
                         />
@@ -375,7 +337,7 @@
                           <span class="frag-name">Original</span>
                         </div>
                         <img
-                          src="./assests/main-product.png"
+                          src="./assets/main-product.png"
                           alt="Original"
                           class="frag-img"
                         />
@@ -386,7 +348,7 @@
                           <span class="frag-name">Lily</span>
                         </div>
                         <img
-                          src="./assests/product one.png"
+                          src="./assets/product one.png"
                           alt="Lily"
                           class="frag-img"
                         />
@@ -397,7 +359,7 @@
                           <span class="frag-name">Rose</span>
                         </div>
                         <img
-                          src="./assests/product two.png"
+                          src="./assets/product two.png"
                           alt="Rose"
                           class="frag-img"
                         />
@@ -411,7 +373,7 @@
                       <div class="included-item-box">
                         <p class="inc-label">Every 30 Days</p>
                         <img
-                          src="./assests/main-product.png"
+                          src="./assets/main-product.png"
                           alt="Monthly Bottle"
                           class="inc-img-main"
                         />
@@ -421,12 +383,9 @@
                           One Time <strong>(Free)</strong>
                         </p>
                         <div class="sample-images">
-                          <img
-                            src="./assests/main-product.png"
-                            alt="Sample 1"
-                          />
-                          <img src="./assests/product one.png" alt="Sample 2" />
-                          <img src="./assests/product two.png" alt="Sample 3" />
+                          <img src="./assets/main-product.png" alt="Sample 1" />
+                          <img src="./assets/product one.png" alt="Sample 2" />
+                          <img src="./assets/product two.png" alt="Sample 3" />
                         </div>
                       </div>
                     </div>
@@ -435,7 +394,7 @@
                   <ul class="plan-features">
                     <li>
                       <img
-                        src="./assests/checkmark.png"
+                        src="./assets/checkmark.png"
                         alt="check"
                         class="feat-icon"
                       />
@@ -443,7 +402,7 @@
                     </li>
                     <li>
                       <img
-                        src="./assests/checkmark.png"
+                        src="./assets/checkmark.png"
                         alt="check"
                         class="feat-icon"
                       />
@@ -452,7 +411,7 @@
                     </li>
                     <li>
                       <img
-                        src="./assests/checkmark.png"
+                        src="./assets/checkmark.png"
                         alt="check"
                         class="feat-icon"
                       />
@@ -460,7 +419,7 @@
                     </li>
                     <li>
                       <img
-                        src="./assests/checkmark.png"
+                        src="./assets/checkmark.png"
                         alt="check"
                         class="feat-icon"
                       />
@@ -468,7 +427,7 @@
                     </li>
                     <li>
                       <img
-                        src="./assests/checkmark.png"
+                        src="./assets/checkmark.png"
                         alt="check"
                         class="feat-icon"
                       />
@@ -483,6 +442,639 @@
           </div>
         </div>
       </section>
+
+      <!-- Our Collection Section -->
+      <section class="collection-section">
+        <div class="collection-container">
+          <div class="collection-left">
+            <h2 class="collection-title">Our Collection</h2>
+            <div class="accordion">
+              <div class="accordion-item active">
+                <button class="accordion-header">
+                  <h3>Signature Scents</h3>
+                  <span class="acc-icon">&minus;</span>
+                </button>
+                <div class="accordion-body">
+                  <p>
+                    Discover our curated line of signature perfumes, designed to
+                    become your daily companion.
+                  </p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-header">
+                  <h3>Signature Scents</h3>
+                  <span class="acc-icon">&plus;</span>
+                </button>
+                <div class="accordion-body" style="display: none">
+                  <p>
+                    Explore our exclusive range of scents crafted for clarity
+                    and elegance.
+                  </p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-header">
+                  <h3>Signature Scents</h3>
+                  <span class="acc-icon">&plus;</span>
+                </button>
+                <div class="accordion-body" style="display: none">
+                  <p>
+                    Find your perfect match with our diverse collection of
+                    premium fragrances.
+                  </p>
+                </div>
+              </div>
+              <div class="accordion-item">
+                <button class="accordion-header">
+                  <h3>Signature Scents</h3>
+                  <span class="acc-icon">&plus;</span>
+                </button>
+                <div class="accordion-body" style="display: none">
+                  <p>
+                    Elevate your presence with scents that leave a lasting
+                    impression.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="collection-right">
+            <img src="./assets/sparing.png" alt="Our Collection" />
+          </div>
+        </div>
+      </section>
+
+      <!-- Stats Banner Section -->
+      <section class="stats-banner reveal">
+        <div class="stats-container">
+          <div class="banner-stat">
+            <div class="stat-number">
+              <h2 class="counter" data-target="84">0</h2>
+              <span>%</span>
+            </div>
+            <p>Switched to Natural Perfumes</p>
+          </div>
+          <div class="banner-stat">
+            <div class="stat-number">
+              <h2 class="counter" data-target="78">0</h2>
+              <span>%</span>
+            </div>
+            <p>Feel More Confident</p>
+          </div>
+          <div class="banner-stat">
+            <div class="stat-number">
+              <h2 class="counter" data-target="89">0</h2>
+              <span>%</span>
+            </div>
+            <p>Report Long-Lasting Scent</p>
+          </div>
+          <div class="banner-stat">
+            <div class="stat-number">
+              <h2 class="counter" data-target="90">0</h2>
+              <span>%</span>
+            </div>
+            <p>Recommend to a Friend</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Comparison Section (Converted to Table) -->
+      <section class="comparison-section">
+        <h2 class="comparison-title">Why GTG is the #1 Choice</h2>
+        <div class="comparison-container">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th class="comp-label">Qualities</th>
+                <th class="comp-highlight">
+                  <div class="comp-img-wrapper">
+                    <img
+                      src="./assets/comparision-img/pexels-valeriya-1961782 1.png"
+                      alt="GTG"
+                    />
+                  </div>
+                  <span class="comp-name">GTG</span>
+                </th>
+                <th>
+                  <div class="comp-img-wrapper small">
+                    <img
+                      src="./assets/comparision-img/pexels-rethaferguson-3059609 2.png"
+                      alt="Arose"
+                    />
+                  </div>
+                  <span class="comp-name">Arose</span>
+                </th>
+                <th>
+                  <div class="comp-img-wrapper small">
+                    <img
+                      src="./assets/comparision-img/pexels-artempodrez-6801177 1.png"
+                      alt="Bella"
+                    />
+                  </div>
+                  <span class="comp-name">Bella</span>
+                </th>
+                <th>
+                  <div class="comp-img-wrapper small">
+                    <img
+                      src="./assets/comparision-img/pexels-pixabay-264870 1.png"
+                      alt="Daisies"
+                    />
+                  </div>
+                  <span class="comp-name">Daisies</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Potency Concentration -->
+              <tr>
+                <td class="comp-label">Potency Concentration</td>
+                <td class="comp-highlight">10x</td>
+                <td>1x</td>
+                <td>1x</td>
+                <td>10x</td>
+              </tr>
+              <!-- Longevity -->
+              <tr>
+                <td class="comp-label">Longevity</td>
+                <td class="comp-highlight">
+                  <svg class="comp-icon filled" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="12" fill="#032e15" />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#555"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <!-- Sillage -->
+              <tr>
+                <td class="comp-label">Sillage</td>
+                <td class="comp-highlight">
+                  <svg class="comp-icon filled" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="12" fill="#032e15" />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <!-- Bottle Design Score -->
+              <tr>
+                <td class="comp-label">Bottle Design Score</td>
+                <td class="comp-highlight">9</td>
+                <td>5</td>
+                <td>6</td>
+                <td>2</td>
+              </tr>
+              <!-- Blend and Harmony -->
+              <tr>
+                <td class="comp-label">Blend and Harmony</td>
+                <td class="comp-highlight">
+                  <svg class="comp-icon filled" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="12" fill="#032e15" />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <!-- Skin Compatibility -->
+              <tr>
+                <td class="comp-label">Skin Compatibility</td>
+                <td class="comp-highlight">
+                  <svg class="comp-icon filled" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="12" fill="#032e15" />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <!-- Scent Profile -->
+              <tr>
+                <td class="comp-label">Scent Profile</td>
+                <td class="comp-highlight">
+                  <svg class="comp-icon filled" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="12" fill="#032e15" />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#555"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+              </tr>
+              <!-- Price vs. Quality -->
+              <tr>
+                <td class="comp-label">Price vs. Quality</td>
+                <td class="comp-highlight">
+                  <svg class="comp-icon filled" viewBox="0 0 24 24">
+                    <circle cx="12" cy="12" r="12" fill="#032e15" />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#fff"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#555"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M15 9l-6 6M9 9l6 6"
+                      stroke="#555"
+                      stroke-width="1.5"
+                    />
+                  </svg>
+                </td>
+                <td>
+                  <svg class="comp-icon outline" viewBox="0 0 24 24">
+                    <circle
+                      cx="12"
+                      cy="12"
+                      r="11"
+                      stroke="#ccc"
+                      stroke-width="1"
+                      fill="none"
+                    />
+                    <path
+                      d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                      fill="#555"
+                    />
+                  </svg>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="comparison-btn-container">
+            <button class="risk-free-btn">Try It Risk-Free</button>
+          </div>
+        </div>
+      </section>
     </div>
+
+    <!-- Footer Section -->
+    <footer class="site-footer">
+      <div class="footer-container">
+        <div class="footer-left">
+          <h2 class="footer-logo">GTG</h2>
+          <div class="footer-links-group">
+            <ul class="footer-nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">Shop</a></li>
+              <li><a href="#">Fragrances</a></li>
+            </ul>
+            <ul class="footer-nav">
+              <li><a href="#">About Us</a></li>
+              <li><a href="#">Blog</a></li>
+              <li><a href="#">Contact</a></li>
+            </ul>
+            <ul class="footer-social">
+              <li>
+                <a href="#">
+                  <svg
+                    class="social-icon"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M12 2.04c-5.5 0-10 4.49-10 10.02c0 5 3.66 9.15 8.44 9.9v-7H7.9v-2.9h2.54V9.85c0-2.51 1.49-3.89 3.78-3.89c1.09 0 2.23.19 2.23.19v2.47h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.45 2.9h-2.33v7a10 10 0 0 0 8.44-9.9c0-5.53-4.5-10.02-10-10.02Z"
+                    />
+                  </svg>
+                  Facebook
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <svg
+                    class="social-icon"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 3.8 7.6v8.8A3.6 3.6 0 0 0 7.6 20h8.8a3.6 3.6 0 0 0 3.8-3.8V7.6A3.6 3.6 0 0 0 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8A1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5a5 5 0 0 1-5 5a5 5 0 0 1-5-5a5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3a3 3 0 0 0 3 3a3 3 0 0 0 3-3a3 3 0 0 0-3-3Z"
+                    />
+                  </svg>
+                  Instagram
+                </a>
+              </li>
+              <li>
+                <a href="#">
+                  <svg
+                    class="social-icon"
+                    viewBox="0 0 24 24"
+                    width="20"
+                    height="20"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+                    />
+                  </svg>
+                  X
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="footer-right">
+          <p class="newsletter-title">
+            Join our newsletter to stay up to date on features and releases.
+          </p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Enter your email" required />
+            <button type="submit">Subscribe</button>
+          </form>
+          <p class="privacy-text">
+            By subscribing you agree to with our
+            <a href="#">Privacy Policy</a> and provide consent to receive
+            updates from our company.
+          </p>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>
