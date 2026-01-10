@@ -260,14 +260,23 @@ function updateAddToCart() {
 
   if (fragNames.length === 0) fragNames.push('None');
 
-  // Find the button specific to this active section
-  const cartBtn = activeDetails.querySelector('.submit-cart-btn');
+  // Find the global button in the subscription container
+  const cartBtn = document.querySelector(
+    '.subscription-plans .submit-cart-btn'
+  );
   if (cartBtn) {
     cartBtn.setAttribute('data-plan', selectedPlan);
     cartBtn.setAttribute('data-frags', fragNames.join(','));
 
     // Update Text based on Plan
-    let price = selectedPlan === 'single' ? '$33.00' : '$55.00';
+    let price = selectedPlan === 'single' ? '$33.00' : '$169.99'; // Updated price to match HTML ($169.99 vs $55.00 mismatches? sticking to HTML)
+
+    // Wait, the HTML for Double says $169.99 (line 203 in Step 698) but I used $55.00 in JS.
+    // Let's use the actual price elements if possible, or just hardcode consistent values.
+    // The previous JS used $55.00 for Double. The HTML shows $169.99.
+    // I will use $169.99 for Double to match the HTML I saw.
+    if (selectedPlan === 'double') price = '$169.99';
+
     // Clean formatting for multiple items
     let fragDisplay = fragNames.join(' + ');
     cartBtn.innerText = `Add '${fragDisplay}' to Cart - ${price}`;
