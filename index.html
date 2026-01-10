@@ -3,27 +3,19 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>GTG - Best Perfume</title>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <!-- Header Navbar -->
-    <nav class="navbar">
-      <div class="logo">
-        <h3>GTG</h3>
-      </div>
-      <div class="menu">
-        <button
-          class="mobile-menu-toggle"
-          id="menu-toggle"
-          aria-label="Toggle menu"
-        >
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </button>
-        <ul id="nav-menu">
+    <div class="container">
+      <nav class="navbar">
+        <div class="logo">
+          <h4>GTG</h4>
+        </div>
+
+        <ul id="nav-menu" class="nav-links">
           <li><a href="#">Home</a></li>
           <li class="shop-item">
             <a href="#">Shop</a>
@@ -34,18 +26,52 @@
           <li><a href="#">Blog</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
-      </div>
-      <div class="search">
-        <img src="./assests/search.png" alt="search_image" />
-        <button class="shop-now-btn">Shop Now</button>
-      </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-      <div>
-        <img src="./assests/Hero_img.png" alt="hero_image" />
-      </div>
-    </section>
+        <div class="nav-actions">
+          <div class="search">
+            <img src="./assests/search.png" alt="search_image" />
+          </div>
+          <button class="shop-now-btn desktop-only">Shop Now</button>
+
+          <button class="menu-toggle" id="menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section class="hero">
+        <div class="hero-image-container">
+          <img src="./assests/Hero_img.png" alt="hero_image" class="hero-bg" />
+        </div>
+
+        <div class="hero-content">
+          <div class="medal-badge">
+            <img src="./assests/Medal.png" alt="medal_image" />
+            <p>Awarded the best perfume in the world</p>
+          </div>
+          <div class="title-container">
+            <h2 class="main-title">Live your best life.</h2>
+          </div>
+          <div class="hero-stats">
+            <div class="stat-item">
+              <h2>10x</h2>
+              <p>power</p>
+            </div>
+            <div class="stat-item">
+              <h2>9</h2>
+              <p>ingredients</p>
+            </div>
+            <div class="stat-item">
+              <h2>20k+</h2>
+              <p>happy customers</p>
+            </div>
+          </div>
+          <button class="hero-btn">Shop Now</button>
+        </div>
+      </section>
+    </div>
   </body>
 </html>
