@@ -244,15 +244,444 @@ body {
   }
 }
 
+/* Product Details Section */
+.product-details-section {
+  padding: 60px 5%;
+  background: #fff;
+}
+
+.product-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+}
+
+/* Gallery Styles - Modern Facelift */
+.product-gallery {
+  position: sticky;
+  top: 40px;
+  height: max-content;
+}
+
+.main-image-container {
+  position: relative;
+  background: #f2f2f2;
+  border-radius: 12px;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.main-display-img {
+  width: 70%;
+  height: auto;
+  object-fit: contain;
+}
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid #c8d3cc;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  transition: 0.3s;
+}
+
+.gallery-arrow img {
+  width: 16px;
+  opacity: 0.8;
+}
+.gallery-arrow:hover {
+  background: #fff;
+  border-color: #032e15;
+}
+.gallery-arrow.prev {
+  left: 15px;
+}
+.gallery-arrow.next {
+  right: 15px;
+}
+
+.gallery-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.g-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  border: 1px solid #032e15;
+  background: transparent;
+}
+
+.g-dot.active {
+  background: #032e15;
+}
+
+.thumbnails-grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+}
+
+.thumb-item {
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.thumb-item img {
+  width: 100%;
+  aspect-ratio: 1;
+  object-fit: cover;
+}
+
+.thumb-item.active {
+  border: 2px solid #567b8d;
+}
+
+/* Product Info Panel Styles */
+.product-main-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #032e15;
+  margin-bottom: 5px;
+}
+
+.product-rating {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.rating-stars {
+  display: flex;
+  gap: 2px;
+}
+.rating-stars img {
+  width: 14px;
+  filter: saturate(1.5) hue-rotate(90deg);
+}
+
+.rating-text {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.product-summary {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Subscription Plans */
+.subscription-plans {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.plan-card {
+  border: 1px solid #dfdfdf;
+  border-radius: 10px;
+  padding: 16px 20px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.most-popular-plan {
+  border-color: #dfdfdf;
+  padding-top: 45px;
+}
+
+.plan-badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to right, #2bc864, #032e15);
+  color: #fff;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 8px;
+  border-radius: 5px 5px 0 0;
+}
+
+.plan-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.custom-radio-outer {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid #008144;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.custom-radio-outer.active {
+  border-color: #008144;
+}
+
+.custom-radio-inner {
+  width: 7px;
+  height: 7px;
+  background: #008144;
+  border-radius: 50%;
+}
+
+.plan-selector label {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #444;
+}
+
+.plan-pricing .price-now {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #222;
+}
+
+.plan-pricing .price-was {
+  font-size: 1.15rem;
+  text-decoration: line-through;
+  color: #ccc;
+  margin-left: 8px;
+}
+
+/* Subscription Sections Branding */
+.sub-label {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #032e15;
+  margin-bottom: 18px;
+}
+
+.plan-details {
+  margin-top: 15px;
+  border-top: 1.5px solid #000; /* Prominent black line as requested */
+  padding-top: 20px;
+}
+
+.fragrance-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 35px;
+}
+
+.frag-option {
+  background: #fbfbfb;
+  border: 1px solid #f0f0f0;
+  border-radius: 8px;
+  padding: 20px 10px;
+  position: relative;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.frag-option.selected {
+  background: #fbfbfb;
+  border-color: #eee;
+}
+
+.best-seller-tag {
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  background: #032e15;
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 4px;
+  z-index: 2;
+}
+
+.frag-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 25px;
+}
+
+.frag-dot {
+  width: 14px;
+  height: 14px;
+  border: 1.5px solid #008144;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.frag-option.selected .frag-dot {
+  background: #008144;
+  box-shadow: inset 0 0 0 2px #fff;
+}
+
+.frag-name {
+  font-size: 0.95rem;
+  color: #666;
+  font-weight: 400;
+}
+
+.frag-img {
+  width: 90px; /* Further increased size */
+  height: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+/* Included Section Refinement */
+.included-grid {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.included-item-box {
+  border: 1px solid #c2c2c2;
+  border-radius: 12px;
+  padding: 25px 20px;
+  text-align: center;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inc-label {
+  align-self: flex-start;
+  font-size: 1.05rem;
+  color: #666;
+  margin-bottom: 25px;
+}
+
+.inc-img-main {
+  height: 130px; /* Further increased size */
+  object-fit: contain;
+}
+
+.sample-images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  height: 130px; /* Further increased size */
+}
+
+.sample-images img {
+  height: 100px; /* Further increased size */
+  object-fit: contain;
+}
+
+/* Plan Features checklist */
+.plan-features {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.plan-features li {
+  font-size: 0.95rem;
+  color: #333;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  line-height: 1.5;
+}
+
+.feat-icon {
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  filter: brightness(0) saturate(100%) invert(54%) sepia(35%) saturate(612%)
+    hue-rotate(115deg) brightness(95%) contrast(92%);
+  /* Creates a teal/green checkmark color matching the reference */
+}
+
+.submit-cart-btn {
+  background: #032e15;
+  color: #fff;
+  border: none;
+  padding: 18px;
+  border-radius: 50px;
+  font-size: 1.15rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 20px;
+  transition: 0.3s;
+}
+
+.submit-cart-btn:hover {
+  background: #021a0d;
+}
+
+/* RESPONSIVE TWEAKS */
+@media (max-width: 1024px) {
+  .product-container {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    padding: 0 5%;
+  }
+  .product-gallery {
+    position: static;
+  }
+}
+
 @media (max-width: 768px) {
   .navbar {
     padding: 1.5rem 1.5rem;
-    background: transparent; /* Transparent like desktop */
-    position: absolute; /* Layered like desktop */
+    background: transparent;
+    position: absolute;
     box-shadow: none;
   }
 
-  /* Hamburger & Search Side-by-Side */
+  .product-main-title {
+    font-size: 1.8rem;
+  }
+  .fragrance-grid {
+    grid-template-columns: 1fr;
+  }
+  .included-grid {
+    grid-template-columns: 1fr;
+  }
+
   .nav-actions {
     gap: 1.25rem;
   }
@@ -357,6 +786,19 @@ body {
     width: auto;
     padding: 0.75rem 2.25rem;
     font-size: 1rem;
+  }
+
+  /* Product Page Mobile Tweaks */
+  .product-details-section {
+    padding: 40px 1.5rem;
+  }
+
+  .fragrance-options {
+    grid-template-columns: 1fr;
+  }
+
+  .included-items {
+    grid-template-columns: 1fr;
   }
 }
 

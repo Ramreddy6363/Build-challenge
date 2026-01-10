@@ -72,6 +72,417 @@
           <button class="hero-btn">Shop Now</button>
         </div>
       </section>
+
+      <!-- Product Details Section -->
+      <section class="product-details-section">
+        <div class="product-container">
+          <!-- Left: Product Gallery -->
+          <div class="product-gallery">
+            <div class="main-image-container">
+              <button class="gallery-arrow prev">
+                <img src="./assests/reverse.svg" alt="prev" />
+              </button>
+              <img
+                src="./assests/display-img.png"
+                alt="Main Product"
+                class="main-display-img"
+              />
+              <button class="gallery-arrow next">
+                <img src="./assests/Button.svg" alt="next" />
+              </button>
+              <div class="gallery-dots">
+                <span class="g-dot active"></span>
+                <span class="g-dot"></span>
+                <span class="g-dot"></span>
+                <span class="g-dot"></span>
+              </div>
+            </div>
+            <div class="thumbnails-grid-container">
+              <div class="thumb-item">
+                <img
+                  src="./assests/product-page-image/pexels-pixabay-264870 1.png"
+                  alt="thumb"
+                />
+              </div>
+              <div class="thumb-item active">
+                <img
+                  src="./assests/product-page-image/pexels-pixabay-264950 1.png"
+                  alt="thumb"
+                />
+              </div>
+              <div class="thumb-item">
+                <img
+                  src="./assests/product-page-image/pexels-rethaferguson-3059609 2.png"
+                  alt="thumb"
+                />
+              </div>
+              <div class="thumb-item">
+                <img
+                  src="./assests/product-page-image/Group 1000003951.png"
+                  alt="thumb"
+                />
+              </div>
+              <div class="thumb-item">
+                <img
+                  src="./assests/product-page-image/pexels-pixabay-264870 1-1.png"
+                  alt="thumb"
+                />
+              </div>
+              <div class="thumb-item">
+                <img
+                  src="./assests/product-page-image/pexels-pixabay-264950 1-1.png"
+                  alt="thumb"
+                />
+              </div>
+              <div class="thumb-item">
+                <img
+                  src="./assests/product-page-image/pexels-rethaferguson-3059609 2-1.png"
+                  alt="thumb"
+                />
+              </div>
+              <div class="thumb-item">
+                <img
+                  src="./assests/product-page-image/Group 1000003951-1.png"
+                  alt="thumb"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: Product Info -->
+          <div class="product-info-panel">
+            <h1 class="product-main-title">GTG Perfumes</h1>
+            <div class="product-rating">
+              <div class="rating-stars">
+                <img src="./assests/star.png" alt="star" />
+                <img src="./assests/star.png" alt="star" />
+                <img src="./assests/star.png" alt="star" />
+                <img src="./assests/star.png" alt="star" />
+                <img src="./assests/star.png" alt="star" />
+              </div>
+              <span class="rating-text">4.7 (999+ reviews)</span>
+            </div>
+            <p class="product-summary">
+              Experience the timeless allure backed by modern artistry, captured
+              in every bottle of our fragrance. Crafted for those who seek to
+              elevate their essence with purpose and sophistication.
+            </p>
+
+            <!-- Subscription Cards Container -->
+            <div class="subscription-plans">
+              <!-- Plan 1 (Most Popular) -->
+              <div class="plan-card most-popular-plan active" id="plan-single">
+                <div class="plan-badge">Most Popular</div>
+                <div class="plan-header" onclick="selectPlan('single')">
+                  <div class="plan-selector">
+                    <div class="custom-radio-outer active">
+                      <div class="custom-radio-inner"></div>
+                    </div>
+                    <label>Single Subscription</label>
+                  </div>
+                  <div class="plan-pricing">
+                    <span class="price-now">$99.99</span>
+                    <span class="price-was">$146</span>
+                  </div>
+                </div>
+
+                <div class="plan-details" id="details-single">
+                  <div class="fragrance-selection">
+                    <p class="sub-label">Choose a Fragrance</p>
+                    <div class="fragrance-grid">
+                      <div class="frag-option selected">
+                        <span class="best-seller-tag">BEST-SELLER</span>
+                        <div class="frag-info">
+                          <span class="frag-dot active"></span>
+                          <span class="frag-name">Original</span>
+                        </div>
+                        <img
+                          src="./assests/main-product.png"
+                          alt="Original"
+                          class="frag-img"
+                        />
+                      </div>
+                      <div class="frag-option">
+                        <div class="frag-info">
+                          <span class="frag-dot"></span>
+                          <span class="frag-name">Lily</span>
+                        </div>
+                        <img
+                          src="./assests/product one.png"
+                          alt="Lily"
+                          class="frag-img"
+                        />
+                      </div>
+                      <div class="frag-option">
+                        <div class="frag-info">
+                          <span class="frag-dot"></span>
+                          <span class="frag-name">Rose</span>
+                        </div>
+                        <img
+                          src="./assests/product two.png"
+                          alt="Rose"
+                          class="frag-img"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="included-section">
+                    <p class="sub-label">What's Included:</p>
+                    <div class="included-grid">
+                      <div class="included-item-box">
+                        <p class="inc-label">Every 30 Days</p>
+                        <img
+                          src="./assests/main-product.png"
+                          alt="Monthly Bottle"
+                          class="inc-img-main"
+                        />
+                      </div>
+                      <div class="included-item-box">
+                        <p class="inc-label">
+                          One Time <strong>(Free)</strong>
+                        </p>
+                        <div class="sample-images">
+                          <img
+                            src="./assests/main-product.png"
+                            alt="Sample 1"
+                          />
+                          <img src="./assests/product one.png" alt="Sample 2" />
+                          <img src="./assests/product two.png" alt="Sample 3" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <ul class="plan-features">
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      1 Bottle Shipped Monthly
+                    </li>
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      <strong>Free</strong> Sampler For Original, Lily And Rose
+                      Fragrances
+                    </li>
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      <strong>50% OFF Shipping</strong>
+                    </li>
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      Pause Or Cancel Anytime After 3 Months Minimum
+                    </li>
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      28 Day Money Back Guarantee*
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <!-- Plan 2 -->
+              <div class="plan-card" id="plan-double">
+                <div class="plan-header" onclick="selectPlan('double')">
+                  <div class="plan-selector">
+                    <div class="custom-radio-outer">
+                      <div
+                        class="custom-radio-inner"
+                        style="display: none"
+                      ></div>
+                    </div>
+                    <label>Double Subscription</label>
+                  </div>
+                  <div class="plan-pricing">
+                    <span class="price-now">$169.99</span>
+                    <span class="price-was">$146</span>
+                  </div>
+                </div>
+
+                <div
+                  class="plan-details"
+                  id="details-double"
+                  style="display: none"
+                >
+                  <!-- Fragrance 1 -->
+                  <div class="fragrance-selection">
+                    <p class="sub-label">Choose Fragrance 1</p>
+                    <div class="fragrance-grid">
+                      <div class="frag-option selected">
+                        <span class="best-seller-tag">BEST-SELLER</span>
+                        <div class="frag-info">
+                          <span class="frag-dot active"></span>
+                          <span class="frag-name">Original</span>
+                        </div>
+                        <img
+                          src="./assests/main-product.png"
+                          alt="Original"
+                          class="frag-img"
+                        />
+                      </div>
+                      <div class="frag-option">
+                        <div class="frag-info">
+                          <span class="frag-dot"></span>
+                          <span class="frag-name">Lily</span>
+                        </div>
+                        <img
+                          src="./assests/product one.png"
+                          alt="Lily"
+                          class="frag-img"
+                        />
+                      </div>
+                      <div class="frag-option">
+                        <div class="frag-info">
+                          <span class="frag-dot"></span>
+                          <span class="frag-name">Rose</span>
+                        </div>
+                        <img
+                          src="./assests/product two.png"
+                          alt="Rose"
+                          class="frag-img"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Fragrance 2 -->
+                  <div class="fragrance-selection">
+                    <p class="sub-label">Choose Fragrance 2</p>
+                    <div class="fragrance-grid">
+                      <div class="frag-option selected">
+                        <span class="best-seller-tag">BEST-SELLER</span>
+                        <div class="frag-info">
+                          <span class="frag-dot active"></span>
+                          <span class="frag-name">Original</span>
+                        </div>
+                        <img
+                          src="./assests/main-product.png"
+                          alt="Original"
+                          class="frag-img"
+                        />
+                      </div>
+                      <div class="frag-option">
+                        <div class="frag-info">
+                          <span class="frag-dot"></span>
+                          <span class="frag-name">Lily</span>
+                        </div>
+                        <img
+                          src="./assests/product one.png"
+                          alt="Lily"
+                          class="frag-img"
+                        />
+                      </div>
+                      <div class="frag-option">
+                        <div class="frag-info">
+                          <span class="frag-dot"></span>
+                          <span class="frag-name">Rose</span>
+                        </div>
+                        <img
+                          src="./assests/product two.png"
+                          alt="Rose"
+                          class="frag-img"
+                        />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="included-section">
+                    <p class="sub-label">What's Included:</p>
+                    <div class="included-grid">
+                      <div class="included-item-box">
+                        <p class="inc-label">Every 30 Days</p>
+                        <img
+                          src="./assests/main-product.png"
+                          alt="Monthly Bottle"
+                          class="inc-img-main"
+                        />
+                      </div>
+                      <div class="included-item-box">
+                        <p class="inc-label">
+                          One Time <strong>(Free)</strong>
+                        </p>
+                        <div class="sample-images">
+                          <img
+                            src="./assests/main-product.png"
+                            alt="Sample 1"
+                          />
+                          <img src="./assests/product one.png" alt="Sample 2" />
+                          <img src="./assests/product two.png" alt="Sample 3" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <ul class="plan-features">
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      1 Bottle Shipped Monthly
+                    </li>
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      <strong>Free</strong> Sampler For Original, Lily And Rose
+                      Fragrances
+                    </li>
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      <strong>50% OFF Shipping</strong>
+                    </li>
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      Pause Or Cancel Anytime After 3 Months Minimum
+                    </li>
+                    <li>
+                      <img
+                        src="./assests/checkmark.png"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      28 Day Money Back Guarantee*
+                    </li>
+                  </ul>
+                </div>
+              </div>
+
+              <button class="submit-cart-btn">Add to Cart</button>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   </body>
 </html>
