@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // --- Mobile Menu ---
   const menuToggle = document.getElementById('menu-toggle');
   const navMenu = document.getElementById('nav-menu');
 
@@ -9,6 +8,16 @@ document.addEventListener('DOMContentLoaded', () => {
       navMenu.classList.toggle('active');
     });
 
+    // Close menu when the close button is clicked
+    const closeBtn = document.getElementById('mobile-menu-close');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', () => {
+        menuToggle.classList.remove('active');
+        navMenu.classList.remove('active');
+      });
+    }
+
+    // Close menu when a navigation link is clicked
     const navLinks = navMenu.querySelectorAll('a');
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
@@ -18,7 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // --- Accordion ---
   const accHeaders = document.querySelectorAll('.accordion-header');
   accHeaders.forEach((header) => {
     header.addEventListener('click', () => {
@@ -26,7 +34,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const body = item.querySelector('.accordion-body');
       const icon = item.querySelector('.acc-icon');
 
-      // Close others
       document.querySelectorAll('.accordion-item').forEach((i) => {
         if (i !== item) {
           const b = i.querySelector('.accordion-body');
@@ -37,7 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-      // Toggle current
+      // Toggle visibility of the current item
       if (body.style.display === 'none' || !body.style.display) {
         body.style.display = 'block';
         icon.innerHTML = '&minus;';
@@ -50,41 +57,38 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // --- Product Gallery ---
   const mainImg = document.getElementById('main-img');
   const prevBtn = document.getElementById('prev-btn');
   const nextBtn = document.getElementById('next-btn');
   const dots = document.querySelectorAll('.g-dot');
   const thumbs = document.querySelectorAll('.thumb-item');
 
-  // Collect all image sources from thumbs for the gallery
+  // Map all image sources for navigation
   const images = Array.from(thumbs).map(
     (thumb) => thumb.querySelector('img').src
   );
   let currentIndex = 0;
 
   function updateGallery(index) {
+    // Handle circular navigation
     if (index < 0) index = images.length - 1;
     if (index >= images.length) index = 0;
     currentIndex = index;
 
-    // Update Main Image
     mainImg.src = images[currentIndex];
 
-    // Update Dots
     dots.forEach((dot, i) => {
       if (i === currentIndex && i < dots.length) dot.classList.add('active');
-      // Safety check if dots are fewer than images
       else dot.classList.remove('active');
     });
 
-    // Update Thumbs
     thumbs.forEach((thumb, i) => {
       if (i === currentIndex) thumb.classList.add('active');
       else thumb.classList.remove('active');
     });
   }
 
+  // Attach Event Listeners for Gallery Controls
   if (prevBtn)
     prevBtn.addEventListener('click', () => updateGallery(currentIndex - 1));
   if (nextBtn)
@@ -101,21 +105,16 @@ document.addEventListener('DOMContentLoaded', () => {
     thumb.addEventListener('click', () => updateGallery(index));
   });
 
-  // --- Stats Counter logic replaced by generic observer below ---
-
-  // --- Cart & Plan Logic ---
-  // Initialize Radio Selections
   const fragOptions = document.querySelectorAll('.frag-option');
   fragOptions.forEach((opt) => {
     opt.addEventListener('click', function () {
-      // Find parent group (grid)
       const grid = this.closest('.fragrance-grid');
-      // Remove selected from siblings
+
       grid.querySelectorAll('.frag-option').forEach((sib) => {
         sib.classList.remove('selected');
         sib.querySelector('.frag-dot').classList.remove('active');
       });
-      // Add selected to clicked
+
       this.classList.add('selected');
       this.querySelector('.frag-dot').classList.add('active');
 
@@ -123,10 +122,9 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Ensure initial state logic runs
+  // Initial call to set correct button state
   updateAddToCart();
 
-  // --- Reveal Animation Observer ---
   const revealElements = document.querySelectorAll('.reveal');
   const revealObserver = new IntersectionObserver(
     (entries, observer) => {
@@ -144,14 +142,12 @@ document.addEventListener('DOMContentLoaded', () => {
     revealObserver.observe(el);
   });
 
-  // --- Stats Counter Generic Observer ---
-  // Observe any section containing counters (like stats-banner)
   const statsSections = document.querySelectorAll('.stats-banner, .hero-stats');
   if (statsSections.length > 0) {
     const statsObserver = new IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Animate counters inside this specific section
+          // Find and animate counters within the visible section
           const sectionCounters = entry.target.querySelectorAll('.counter');
           sectionCounters.forEach((counter) => {
             const speed = 200;
@@ -164,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(updateCount, 20);
               } else {
                 counter.innerText = target;
-                if (target === 20000) counter.innerText = '20k+';
+                if (target === 20000) counter.innerText = '20k+'; // Specific format for large number
               }
             };
             updateCount();
@@ -177,19 +173,19 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Exposed function for HTML onclick
+// Handles switching between Single/Double plans
 function selectPlan(plan) {
-  // Toggle UI - Active Class on Card
+  // Reset both plans to inactive
   document.getElementById('plan-single').classList.remove('active');
   document.getElementById('plan-double').classList.remove('active');
 
-  // Hide all details first
+  // Hide detail sections
   const detailsSingle = document.getElementById('details-single');
   const detailsDouble = document.getElementById('details-double');
   if (detailsSingle) detailsSingle.style.display = 'none';
   if (detailsDouble) detailsDouble.style.display = 'none';
 
-  // Custom Radios Reset
+  // Reset custom radio buttons
   document
     .querySelectorAll('.custom-radio-outer')
     .forEach((el) => el.classList.remove('active'));
@@ -197,39 +193,39 @@ function selectPlan(plan) {
     .querySelectorAll('.custom-radio-inner')
     .forEach((el) => (el.style.display = 'none'));
 
-  // Activate Selected
+  // Activate the selected plan
   const activePlan = document.getElementById('plan-' + plan);
   if (activePlan) {
     activePlan.classList.add('active');
 
-    // Toggle Radio
+    // Activate the radio button
     const radioOuter = activePlan.querySelector('.custom-radio-outer');
     const radioInner = activePlan.querySelector('.custom-radio-inner');
     if (radioOuter) radioOuter.classList.add('active');
     if (radioInner) radioInner.style.display = 'block';
 
-    // Show Details
+    // Show plan details
     const activeDetails = document.getElementById('details-' + plan);
     if (activeDetails) activeDetails.style.display = 'block';
   }
 
-  // Update Cart logic
+  // Refresh cart button text
   updateAddToCart();
 }
 
+// Handles fragrance selection within a plan
 function selectFragrance(element, name) {
-  // Find parent grid
   const grid = element.closest('.fragrance-grid');
   if (!grid) return;
 
-  // Remove selected from siblings
+  // Deselect siblings
   grid.querySelectorAll('.frag-option').forEach((sib) => {
     sib.classList.remove('selected');
     const dot = sib.querySelector('.frag-dot');
     if (dot) dot.classList.remove('active');
   });
 
-  // Add selected to clicked
+  // Select clicked element
   element.classList.add('selected');
   const dot = element.querySelector('.frag-dot');
   if (dot) dot.classList.add('active');
@@ -237,6 +233,7 @@ function selectFragrance(element, name) {
   updateAddToCart();
 }
 
+// Updates the 'Add to Cart' button text based on selection
 function updateAddToCart() {
   let selectedPlan = '';
   if (
@@ -251,7 +248,7 @@ function updateAddToCart() {
   const activeDetails = document.getElementById('details-' + selectedPlan);
   if (!activeDetails) return;
 
-  // Get selected fragrances within active details
+  // Retrieve names of selected fragrances
   const selectedFrags = activeDetails.querySelectorAll(
     '.frag-option.selected .frag-name'
   );
@@ -260,7 +257,7 @@ function updateAddToCart() {
 
   if (fragNames.length === 0) fragNames.push('None');
 
-  // Find the global button in the subscription container
+  // Update button text and attributes
   const cartBtn = document.querySelector(
     '.subscription-plans .submit-cart-btn'
   );
@@ -268,16 +265,11 @@ function updateAddToCart() {
     cartBtn.setAttribute('data-plan', selectedPlan);
     cartBtn.setAttribute('data-frags', fragNames.join(','));
 
-    // Update Text based on Plan
-    let price = selectedPlan === 'single' ? '$33.00' : '$169.99'; // Updated price to match HTML ($169.99 vs $55.00 mismatches? sticking to HTML)
+    // Set pricing based on plan type
+    let price = selectedPlan === 'single' ? '$33.00' : '$169.99';
 
-    // Wait, the HTML for Double says $169.99 (line 203 in Step 698) but I used $55.00 in JS.
-    // Let's use the actual price elements if possible, or just hardcode consistent values.
-    // The previous JS used $55.00 for Double. The HTML shows $169.99.
-    // I will use $169.99 for Double to match the HTML I saw.
     if (selectedPlan === 'double') price = '$169.99';
 
-    // Clean formatting for multiple items
     let fragDisplay = fragNames.join(' + ');
     cartBtn.innerText = `Add '${fragDisplay}' to Cart - ${price}`;
   }

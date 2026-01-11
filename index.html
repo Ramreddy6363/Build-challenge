@@ -22,6 +22,9 @@
         </div>
 
         <ul id="nav-menu" class="nav-links">
+          <button class="mobile-menu-close" id="mobile-menu-close">
+            &times;
+          </button>
           <li><a href="#">Home</a></li>
           <li class="shop-item">
             <a href="#">Shop</a>
@@ -167,10 +170,11 @@
 
               <!-- Option 1 -->
               <div
-                class="plan-card"
+                class="plan-card most-popular-plan"
                 id="plan-single"
                 onclick="selectPlan('single')"
               >
+                <div class="plan-badge">Most Popular</div>
                 <div class="plan-header">
                   <div class="plan-selector">
                     <div class="custom-radio-outer active">
@@ -240,33 +244,81 @@
                     <p class="sub-label">What's Included:</p>
                     <div class="included-grid">
                       <div class="included-item-box">
+                        <p class="inc-label">Every 30 Days</p>
                         <img
                           src="./assets/main-product.webp"
-                          class="inc-icon"
-                          alt="case"
+                          alt="Monthly Bottle"
+                          class="inc-img-main"
                         />
-                        <span>1 Case</span>
                       </div>
                       <div class="included-item-box">
-                        <img
-                          src="./assets/product one.webp"
-                          class="inc-icon"
-                          alt="scent"
-                        />
-                        <span>1 Scent</span>
+                        <p class="inc-label">
+                          One Time <strong>(Free)</strong>
+                        </p>
+                        <div class="sample-images">
+                          <img
+                            src="./assets/main-product.webp"
+                            alt="Sample 1"
+                          />
+                          <img src="./assets/product one.webp" alt="Sample 2" />
+                          <img src="./assets/product two.webp" alt="Sample 3" />
+                        </div>
                       </div>
                     </div>
                   </div>
+
+                  <ul class="plan-features">
+                    <li>
+                      <img
+                        src="./assets/checkmark.webp"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      1 Bottle Shipped Monthly
+                    </li>
+                    <li>
+                      <img
+                        src="./assets/checkmark.webp"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      <strong>Free</strong> Sampler For Original, Lily And Rose
+                      Fragrances
+                    </li>
+                    <li>
+                      <img
+                        src="./assets/checkmark.webp"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      <strong>50% OFF Shipping</strong>
+                    </li>
+                    <li>
+                      <img
+                        src="./assets/checkmark.webp"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      Pause Or Cancel Anytime After 3 Months Minimum
+                    </li>
+                    <li>
+                      <img
+                        src="./assets/checkmark.webp"
+                        alt="check"
+                        class="feat-icon"
+                      />
+                      28 Day Money Back Guarantee*
+                    </li>
+                  </ul>
                 </div>
               </div>
 
               <!-- Option 2 -->
               <div
-                class="plan-card most-popular-plan"
+                class="plan-card"
                 id="plan-double"
                 onclick="selectPlan('double')"
               >
-                <div class="plan-badge">Most Popular</div>
                 <div class="plan-header" onclick="selectPlan('double')">
                   <div class="plan-selector">
                     <div class="custom-radio-outer">

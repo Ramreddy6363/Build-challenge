@@ -32,12 +32,17 @@
   --font-weight-regular: 400;
 }
 
+html,
 body {
   font-family: var(--font-family);
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
   background: white;
   overflow-x: hidden;
+  width: 100%;
+  position: relative;
+  margin: 0;
+  padding: 0;
 }
 
 /* Navbar Layout */
@@ -137,6 +142,11 @@ body {
   transition: 0.3s;
 }
 
+/* Mobile Menu Close Button (Default Hidden) */
+.mobile-menu-close {
+  display: none;
+}
+
 /* Hero Section */
 .hero {
   position: relative;
@@ -153,7 +163,9 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  z-index: -1;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 .hero-bg {
@@ -727,29 +739,51 @@ body {
   .nav-links {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: 0;
     width: 80%;
     height: 100vh;
     background: white;
     flex-direction: column;
     justify-content: center;
     padding: 3rem;
-    transition: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     box-shadow: -10px 0 20px rgba(0, 0, 0, 0.05);
     z-index: 1001;
+    overflow-y: auto;
+
+    /* Animation definition */
+    transform: translateX(100%);
+    visibility: hidden;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0s linear 0.5s;
+  }
+
+  /* Close Button for Mobile Menu */
+  .mobile-menu-close {
+    display: block;
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--color-primary-dark);
   }
 
   .nav-links.active {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1),
+      visibility 0s linear 0s;
   }
 
-  /* Hero: Restore Layered Desktop Style */
+  /* Hero: Mobile Layout */
   .hero {
-    height: 80vh; /* Reduced from 100vh */
+    height: 80vh;
     min-height: 550px;
     display: flex;
     align-items: center;
-    flex-direction: row; /* Not stacking */
+    flex-direction: row;
     padding-top: 0;
   }
 
@@ -759,29 +793,32 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1;
+    z-index: 0;
   }
 
   .hero-bg {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Fill background */
-    object-position: 70% bottom; /* Focus on bottle and grass */
+    object-fit: cover;
+    object-position: 70% bottom;
   }
 
   .hero-content {
     position: absolute;
-    top: 45%; /* Slightly higher for better balance */
-    left: 6%;
-    transform: translateY(-50%);
-    padding: 0 1rem;
-    max-width: 90%;
-    text-align: left;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    max-width: 100%;
+    padding: 0 5%;
+    text-align: center;
+    align-items: center;
     z-index: 10;
   }
 
   .medal-badge {
-    margin-left: 0;
+    margin: 0 auto 1rem auto;
+    margin-left: auto; /* Ensure centering override */
     font-size: 0.75rem;
     padding: 0.35rem 0.75rem;
     background: rgba(3, 46, 21, 0.75);
@@ -796,10 +833,24 @@ body {
   }
 
   .hero-stats {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+  }
+
+  .stat-item {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
-    margin-bottom: 2rem;
+    align-items: center;
+  }
+
+  .hero-btn {
+    align-self: center;
+    width: 100%;
+    max-width: 250px;
   }
 
   .stat-item h2 {
@@ -849,7 +900,7 @@ body {
   }
 }
 
-/* Collection Section */
+/* --- COLLECTION SECTION BASE STYLES --- */
 .collection-section {
   padding: 80px 5%;
   background: #fff;
@@ -866,7 +917,7 @@ body {
 }
 
 .collection-left {
-  padding: 30px 25px; /* Reduced from 50px 40px */
+  padding: 30px 25px;
   background: #fff;
 }
 
@@ -874,9 +925,10 @@ body {
   font-size: 2rem;
   font-weight: 700;
   color: #032e15;
-  margin-bottom: 25px; /* Reduced from 40px */
+  margin-bottom: 25px;
 }
 
+/* Accordion */
 .accordion {
   display: flex;
   flex-direction: column;
@@ -929,7 +981,6 @@ body {
 
 .collection-right {
   position: relative;
-  /* height: 100%; Removed to allow image to dictate height or fit */
 }
 
 .collection-right img {
@@ -942,6 +993,7 @@ body {
   display: block;
 }
 
+/* Collection Responsive */
 @media (max-width: 900px) {
   .collection-container {
     grid-template-columns: 1fr;
@@ -950,9 +1002,9 @@ body {
     height: auto;
     display: flex;
     justify-content: center;
+    padding: 20px;
   }
   .collection-right img {
-    /* Responsive override for mobile */
     width: 100%;
     height: auto;
     max-width: 590px;
@@ -960,7 +1012,7 @@ body {
   }
 }
 
-/* Stats Banner Section */
+/* --- STATS BANNER BASE STYLES --- */
 .stats-banner {
   background: linear-gradient(180deg, #022a12 0%, #005c2e 100%);
   padding: 50px 5%;
@@ -976,10 +1028,24 @@ body {
   text-align: center;
 }
 
-.banner-stat h2 {
-  font-size: 3rem;
+.banner-stat .stat-number {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 1px;
+}
+
+.banner-stat .stat-number h2 {
+  font-size: 3.5rem;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin: 0;
+  line-height: 1;
+}
+
+.banner-stat .stat-number span {
+  font-size: 1.5rem;
+  font-weight: 600;
 }
 
 .banner-stat p {
@@ -991,6 +1057,7 @@ body {
   margin: 0 auto;
 }
 
+/* Stats Responsive */
 @media (max-width: 768px) {
   .stats-container {
     grid-template-columns: 1fr 1fr;
@@ -1004,7 +1071,7 @@ body {
   }
 }
 
-/* Comparison Section (Table Layout) */
+/* --- COMPARISON SECTION BASE STYLES --- */
 .comparison-section {
   padding: 80px 5%;
   background: #fff;
@@ -1021,34 +1088,32 @@ body {
 .comparison-container {
   max-width: 1000px;
   margin: 0 auto;
-  overflow-x: auto; /* Handle responsiveness */
+  overflow-x: auto; /* Enable scroll on mobile */
 }
 
 .comparison-table {
   width: 100%;
-  border-collapse: separate; /* Allow border-radius on highlighted cells */
+  border-collapse: separate;
   border-spacing: 0;
-  min-width: 700px; /* Force scroll on very small screens */
+  min-width: 700px; /* Force scroll if needed */
 }
 
 .comparison-table th,
 .comparison-table td {
-  padding: 24px 15px; /* Increased padding */
+  padding: 24px 15px;
   vertical-align: middle;
   text-align: center;
-  border-bottom: 1px solid #dcdcdc; /* Darker border for rows */
+  border-bottom: 1px solid #dcdcdc;
 }
 
-/* Label Column (Leftmost) */
 .comparison-table .comp-label {
   text-align: left;
-  font-weight: 700; /* Bolder label */
+  font-weight: 700;
   color: #555;
   width: 25%;
   font-size: 1.05rem;
 }
 
-/* Highlighted Column (GTG) */
 .comparison-table .comp-highlight {
   background: #eafff3;
   color: #032e15;
@@ -1058,28 +1123,22 @@ body {
   width: 20%;
 }
 
-/* Top Border Radius for Highlight Header */
 .comparison-table thead th.comp-highlight {
   border-top: none;
   border-top-left-radius: 12px;
   border-top-right-radius: 12px;
+  border-bottom: 1px solid #000;
 }
 
-/* Bottom Border Radius for Highlight Last Row */
 .comparison-table tbody tr:last-child td.comp-highlight {
   border-bottom: none;
   border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
 }
 
-/* Headers */
 .comparison-table th {
   vertical-align: bottom;
   padding-bottom: 30px;
-  border-bottom: 1px solid #000; /* Stronger header border */
-}
-
-.comparison-table thead th.comp-highlight {
   border-bottom: 1px solid #000;
 }
 
@@ -1102,7 +1161,6 @@ body {
   height: 100%;
   object-fit: contain;
   border-radius: 12px;
-  /* Box shadow removed for cleaner look */
 }
 
 .comp-name {
@@ -1116,7 +1174,7 @@ body {
 .comp-highlight .comp-name {
   color: #032e15;
   font-weight: 700;
-  font-size: 1.25rem; /* Larger font for GTG */
+  font-size: 1.25rem;
 }
 
 .comp-icon {
@@ -1153,7 +1211,7 @@ body {
   transform: translateY(-2px);
 }
 
-/* Footer Section */
+/* --- FOOTER BASE STYLES --- */
 .site-footer {
   background: #022a12;
   color: #fff;
@@ -1252,8 +1310,7 @@ body {
 }
 
 .newsletter-form button {
-  background: #8b5cf6; /* Fallback (replaced below) */
-  background: #7a4f1a; /* Brownish/Orange from design */
+  background: #7a4f1a;
   color: #fff;
   border: none;
   padding: 12px 25px;
@@ -1267,39 +1324,6 @@ body {
   filter: brightness(1.1);
 }
 
-/* Scroll Reveal Animation */
-.reveal {
-  opacity: 0;
-  transform: translateY(50px);
-  transition: all 0.8s ease-out;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Updated Stats Banner Layout */
-.banner-stat .stat-number {
-  display: flex;
-  align-items: baseline;
-  justify-content: center;
-  gap: 2px;
-  margin-bottom: 1px;
-}
-
-.banner-stat .stat-number h2 {
-  font-size: 3.5rem; /* Larger number */
-  font-weight: 700;
-  margin: 0;
-  line-height: 1;
-}
-
-.banner-stat .stat-number span {
-  font-size: 1.5rem; /* Smaller % symbol */
-  font-weight: 600;
-}
-
 .privacy-text {
   font-size: 0.8rem;
   color: #888;
@@ -1311,6 +1335,7 @@ body {
   text-decoration: underline;
 }
 
+/* Footer Responsive */
 @media (max-width: 768px) {
   .footer-container {
     flex-direction: column;
